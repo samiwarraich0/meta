@@ -45,7 +45,10 @@ if (process.env.NODE_ENV === "PRODUCTION") {
             `<meta property="og:url" content="https://nyac-meta.herokuapp.com${url}" />`
           )
           .replace(
-            '<meta property="og:image" content="https://softwaremathematics.com/wp-content/uploads/2021/02/ultimate-guide-to-your-product-launch.jpg" />',
+            `<meta
+               property="og:image"
+               content="https://softwaremathematics.com/wp-content/uploads/2021/02/ultimate-guide-to-your-product-launch.jpg" 
+              />`,
             `<meta property="og:image" content="${product.image}" />`
           )
           .replace(
@@ -61,7 +64,10 @@ if (process.env.NODE_ENV === "PRODUCTION") {
             `<meta property="twitter:url" content="https://nyac-meta.herokuapp.com${url}" />`
           )
           .replace(
-            '<meta property="twitter:image" content="https://softwaremathematics.com/wp-content/uploads/2021/02/ultimate-guide-to-your-product-launch.jpg" />',
+            `<meta
+               property="twitter:image"
+               content="https://softwaremathematics.com/wp-content/uploads/2021/02/ultimate-guide-to-your-product-launch.jpg" 
+             />`,
             `<meta property="twitter:image" content="${product.image}" />`
           );
 
