@@ -2,6 +2,7 @@ const express = require("express");
 const app = express();
 const path = require("path");
 const fs = require("fs");
+const errorMiddleware = require("./middlewares/errors");
 const { getProductById } = require("./services/products");
 
 app.use(express.json());
@@ -72,5 +73,7 @@ if (process.env.NODE_ENV === "PRODUCTION") {
     });
   });
 }
+
+app.use(errorMiddleware);
 
 module.exports = app;
