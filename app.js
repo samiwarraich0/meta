@@ -25,6 +25,14 @@ if (process.env.NODE_ENV === "PRODUCTION") {
         html = html
           .replace("<title>Products</title>", `<title>${product.title}</title>`)
           .replace(
+            '<meta name="title" content="Products" />',
+            `<meta name="title" content="${product.title}" />`
+          )
+          .replace(
+            '<meta name="description" content="Products" />',
+            `<meta name="description" content="${product.description}" />`
+          )
+          .replace(
             '<meta property="og:title" content="Products" />',
             `<meta property="og:title" content="${product.title}" />`
           )
