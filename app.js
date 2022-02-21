@@ -2,6 +2,8 @@ const express = require("express");
 const app = express();
 const path = require("path");
 const fs = require("fs");
+// const fetch = require('node-fetch')
+const fetch = (...args) => import('node-fetch').then(({default: fetch}) => fetch(...args));
 const errorMiddleware = require("./middlewares/errors");
 const { getProductById } = require("./services/products");
 
@@ -21,7 +23,11 @@ if (process.env.NODE_ENV === "PRODUCTION") {
       if (error) console.log(error);
       const url = req.url;
       splitedUrl = url.split("/");
-      const { product } = await getProductById(splitedUrl[2]);
+      const response = await fetch(`https://nyac-meta.herokuapp.com/api/product/${splitedUrl[2]}`)
+      const {product}=await response.json()
+      console.log({product})
+      // const { product } = await getProductById(splitedUrl[2]);
+
       if (product._id) {
         html = html
           .replace("<title>Products</title>", `<title>${product.title}</title>`)
